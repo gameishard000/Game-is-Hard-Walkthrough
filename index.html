@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Game is Hard — Levels 1–100 Walkthrough Hub</title>
+  <meta name="description" content="Clickable index of Game is Hard levels 1–100 + hard-level strategies." />
+  <style>
+    :root{
+      --bg:#0b0d12;
+      --panel:#121625;
+      --panel2:#0f1320;
+      --text:#e9ecf1;
+      --muted:#aab3c5;
+      --accent:#7c5cff;
+      --accent2:#2ee59d;
+      --border:rgba(255,255,255,.08);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --radius2:14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      background:
+        radial-gradient(1100px 600px at 15% -10%, rgba(124,92,255,.30), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(46,229,157,.18), transparent 60%),
+        radial-gradient(1100px 700px at 60% 110%, rgba(124,92,255,.14), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+
+    a{color:inherit; text-decoration:none}
+    a:hover{color:white}
+
+    .wrap{
+      max-width:1200px;
+      margin:0 auto;
+      padding:28px 18px 60px;
+    }
+
+    header{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px 18px;
+      align-items:flex-end;
+      justify-content:space-between;
+      margin-bottom:16px;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .title h1{
+      margin:0;
+      font-size: clamp(22px, 2.2vw, 32px);
+      letter-spacing:.2px;
+    }
+    .title p{
+      margin:0;
+      color:var(--muted);
+      max-width:70ch;
+    }
+
+    .top-actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .pill{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      border-radius:999px;
+      padding:10px 12px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      min-width:280px;
+    }
+    .pill input{
+      width:100%;
+      border:0;
+      outline:0;
+      background:transparent;
+      color:var(--text);
+      font-size:14px;
+    }
+    .pill input::placeholder{color:rgba(170,179,197,.7)}
+
+    .btn{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:600;
+      letter-spacing:.2px;
+      transition: transform .08s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{border-color:rgba(255,255,255,.18)}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      border-color: rgba(124,92,255,.55);
+      background: linear-gradient(180deg, rgba(124,92,255,.45), rgba(124,92,255,.18));
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      overflow:hidden;
+    }
+
+    .card h2{
+      margin:0;
+      padding:16px 16px 0;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .card .sub{
+      padding:6px 16px 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .card .content{
+      padding:14px 16px 16px;
+    }
+
+    .list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .strategy{
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.06);
+      border-radius: var(--radius2);
+      padding:12px 12px;
+    }
+    .strategy h3{
+      margin:0 0 6px 0;
+      font-size:14px;
+    }
+    .strategy ul{margin:0; padding-left:18px; color:var(--text)}
+    .strategy li{margin:6px 0; color:var(--text)}
+    .muted{color:var(--muted)}
+
+    .hard{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .hard-item{
+      border:1px solid rgba(255,255,255,.06);
+      background: rgba(0,0,0,.18);
+      border-radius: var(--radius2);
+      padding:12px;
+    }
+    .hard-item .row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom:8px;
+    }
+    .tag{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(124,92,255,.14);
+      color: rgba(233,236,241,.95);
+    }
+    .hard-item a.level-link{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .hard-item a.level-link small{
+      font-weight:700;
+      color:var(--muted);
+    }
+    .hard-item ol{
+      margin:0;
+      padding-left:18px;
+    }
+    .hard-item ol li{
+      margin:6px 0;
+    }
+
+    .levels-header{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      padding:12px 16px 0;
+    }
+    .levels-header .hint{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .levels{
+      padding:12px 16px 16px;
+      display:grid;
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+      gap:10px;
+    }
+    @media (max-width: 980px){
+      .levels{grid-template-columns: repeat(8, minmax(0, 1fr));}
+    }
+    @media (max-width: 720px){
+      .levels{grid-template-columns: repeat(6, minmax(0, 1fr));}
+    }
+    @media (max-width: 420px){
+      .levels{grid-template-columns: repeat(5, minmax(0, 1fr));}
+    }
+
+    .lvl{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 0;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.20);
+      font-family:var(--mono);
+      font-weight:700;
+      font-size:13px;
+      transition: transform .08s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .lvl:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.18);
+      background: rgba(124,92,255,.16);
+    }
+
+    .lvl.hard-mark{
+      border-color: rgba(46,229,157,.45);
+      background: rgba(46,229,157,.10);
+    }
+
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .kbd{
+      font-family:var(--mono);
+      padding:2px 6px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.22);
+      color: rgba(233,236,241,.9);
+    }
+
+    .hidden{display:none !important;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>Game is Hard — Levels 1–100 Walkthrough Hub</h1>
+        <p>Click a level. If it feels “impossible,” skim the hard tricks first. This page is built to be scanned fast.</p>
+      </div>
+
+      <div class="top-actions">
+        <div class="pill" title="Type a level number (1–100) and press Enter">
+          <span class="muted" style="font-family:var(--mono); font-size:12px;">LEVEL</span>
+          <input id="levelInput" inputmode="numeric" placeholder="e.g. 20, 55, 91" aria-label="Level number" />
+        </div>
+        <button class="btn primary" id="goBtn">Go</button>
+        <button class="btn" id="toggleHardBtn" title="Show only hard-marked levels">Hard only</button>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT: strategies + hard levels -->
+      <section class="card" aria-label="Strategies and hard levels">
+        <h2>Universal Solving Strategies</h2>
+        <div class="sub">If you’re stuck, do these before you doom-scroll hints.</div>
+        <div class="content">
+          <div class="list">
+            <div class="strategy">
+              <h3>1) Text & UI Audit (the game lies)</h3>
+              <ul>
+                <li>Tap the instruction text itself.</li>
+                <li>Drag the level number, menu button, hint bulb, and any “UI” you assume is untouchable.</li>
+                <li>Try moving or “fixing” a word if the sentence is the puzzle.</li>
+              </ul>
+            </div>
+
+            <div class="strategy">
+              <h3>2) Touch Sweep (fast checks)</h3>
+              <ul>
+                <li>Tap everything once (including empty space).</li>
+                <li>Long-press suspicious elements.</li>
+                <li>Drag anything that looks static.</li>
+                <li>Pinch in / pinch out.</li>
+                <li>Use 2–4 fingers (some levels only respond to multi-touch).</li>
+              </ul>
+            </div>
+
+            <div class="strategy">
+              <h3>3) Sensor Sweep (phone is the controller)</h3>
+              <ul>
+                <li>Tilt left/right/up/down.</li>
+                <li>Flip upside down.</li>
+                <li>Shake.</li>
+                <li>Blow into the mic, clap, or stay silent.</li>
+                <li>Cover the top bezel (light sensor area).</li>
+                <li>Put the phone flat and do nothing for a few seconds.</li>
+              </ul>
+            </div>
+
+            <div class="strategy">
+              <h3>4) System Button Sweep (outside-the-app tricks)</h3>
+              <ul>
+                <li>Take a screenshot (common “camera” trick).</li>
+                <li>Use volume up/down.</li>
+                <li>Toggle airplane mode/connectivity if the level hints at signal/power.</li>
+                <li>Plug in a charger if it screams “energy.”</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="height:14px"></div>
+
+          <h2 style="padding:0; margin:0;">Hard Levels (quick walkthroughs)</h2>
+          <div class="sub" style="padding:6px 0 0;">These are the “wait… what?” ones. Do them exactly.</div>
+
+          <div class="hard" id="hardList" style="margin-top:12px;">
+            <!-- hard items injected by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: level index -->
+      <section class="card" aria-label="Level index">
+        <div class="levels-header">
+          <h2 style="padding:0; margin:0;">Level Index (1–100)</h2>
+          <div class="hint">
+            Tip: type a number and hit <span class="kbd">Enter</span>.
+            Hard levels are <span class="kbd">green</span>.
+          </div>
+        </div>
+        <div class="levels" id="levelGrid" aria-label="Level grid">
+          <!-- levels injected by JS -->
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div>
+        Links use: <span class="kbd">https://gameishard.org/level/XX</span>
+      </div>
+      <div class="muted">
+        Pro-tip: if a level has “no solution,” poke the UI. It’s almost always the UI.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // ---- Data ----
+    const BASE = "https://gameishard.org/level/";
+
+    const hardLevels = [
+      {
+        level: 19,
+        tag: "patience",
+        title: "“I need some rest”",
+        steps: [
+          "Put your phone flat on a stable surface.",
+          "Hands off. Don’t touch it.",
+          "After a few seconds, tap the appear-once button when it shows."
+        ]
+      },
+      {
+        level: 20,
+        tag: "UI trick",
+        title: "“h w to fix this?”",
+        steps: [
+          "Tap-hold the menu (hamburger) button in the top-left.",
+          "Drag it into the gap between h and w to act like the missing o."
+        ]
+      },
+      {
+        level: 21,
+        tag: "system",
+        title: "“say cheese!”",
+        steps: [
+          "Take a screenshot on your device.",
+          "The level detects it and clears."
+        ]
+      },
+      {
+        level: 28,
+        tag: "tilt",
+        title: "“make them bigger!”",
+        steps: [
+          "Tilt the phone to “pour” mass into each dot.",
+          "Hold the tilt until the dot finishes inflating."
+        ]
+      },
+      {
+        level: 31,
+        tag: "callback",
+        title: "“what did I need in 19?”",
+        steps: [
+          "Type: rest",
+          "Submit."
+        ]
+      },
+      {
+        level: 32,
+        tag: "wordplay",
+        title: "“countdown to 0.”",
+        steps: [
+          "Drag the 1 out of the 10.",
+          "Leave 0.",
+          "Tap 0."
+        ]
+      },
+      {
+        level: 33,
+        tag: "tilt",
+        title: "broken “finish level” button",
+        steps: [
+          "Tilt the phone so the loose letters slide into place.",
+          "When it reads finish level, tap it."
+        ]
+      },
+      {
+        level: 55,
+        tag: "camera",
+        title: "“can you find these colors around you?”",
+        steps: [
+          "Allow camera access.",
+          "Point at real objects that match each color and hold steady until each box fills.",
+          "No objects nearby? Use a solid-color image on another screen."
+        ]
+      },
+      {
+        level: 58,
+        tag: "gesture",
+        title: "“paint them all”",
+        steps: [
+          "Swipe like a brush from each triangle’s base to its tip.",
+          "Match the triangle’s angle."
+        ]
+      },
+      {
+        level: 69,
+        tag: "timing",
+        title: "“pop the balls.”",
+        steps: [
+          "Tap the spike cluster’s top-right lever area to open it.",
+          "Drag a ball into the opening.",
+          "Tap again to snap shut and pop it.",
+          "Repeat: open → feed → close."
+        ]
+      },
+      {
+        level: 74,
+        tag: "gestures",
+        title: "symbols like < > < O > X",
+        steps: [
+          "Swipe left",
+          "Swipe right",
+          "Swipe left",
+          "Pinch out (expand)",
+          "Swipe right",
+          "Flick off-screen (delete)"
+        ]
+      },
+      {
+        level: 78,
+        tag: "logic",
+        title: "“put them in place.”",
+        steps: [
+          "Only the green ball is the leader.",
+          "Drag green. The others follow.",
+          "Line up the farthest follower first, then fine-tune."
+        ]
+      },
+      {
+        level: 79,
+        tag: "timing",
+        title: "“set it free!”",
+        steps: [
+          "Arrange the arrow squares into a full path to the exit.",
+          "Drop the ball.",
+          "The moment the door opens, yank the blocking square away fast."
+        ]
+      },
+      {
+        level: 91,
+        tag: "math",
+        title: "“fill them all” (3×3 grid)",
+        steps: [
+          "Rule: tile = above + left.",
+          "Row 1: 1, 1, 2",
+          "Row 2: 1, 2, 5",
+          "Row 3: 2, 5, 14"
+        ]
+      }
+    ];
+
+    const hardSet = new Set(hardLevels.map(x => x.level));
+
+    // ---- Render: level grid ----
+    const grid = document.getElementById("levelGrid");
+    for (let i = 1; i <= 100; i++){
+      const a = document.createElement("a");
+      a.className = "lvl" + (hardSet.has(i) ? " hard-mark" : "");
+      a.href = BASE + i;
+      a.target = "_blank";
+      a.rel = "noopener";
+      a.dataset.level = String(i);
+      a.title = "Open level " + i;
+      a.textContent = String(i);
+      grid.appendChild(a);
+    }
+
+    // ---- Render: hard list ----
+    const hardList = document.getElementById("hardList");
+    hardLevels.forEach(item => {
+      const wrap = document.createElement("div");
+      wrap.className = "hard-item";
+      wrap.dataset.level = String(item.level);
+
+      const row = document.createElement("div");
+      row.className = "row";
+
+      const link = document.createElement("a");
+      link.className = "level-link";
+      link.href = BASE + item.level;
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.innerHTML = `Level ${item.level} <small>${escapeHtml(item.title)}</small>`;
+
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = item.tag;
+
+      row.appendChild(link);
+      row.appendChild(tag);
+
+      const ol = document.createElement("ol");
+      item.steps.forEach(s => {
+        const li = document.createElement("li");
+        li.textContent = s;
+        ol.appendChild(li);
+      });
+
+      wrap.appendChild(row);
+      wrap.appendChild(ol);
+      hardList.appendChild(wrap);
+    });
+
+    // ---- Controls: Go to level ----
+    const input = document.getElementById("levelInput");
+    const goBtn = document.getElementById("goBtn");
+
+    function goToLevel(){
+      const raw = (input.value || "").trim();
+      const n = Number(raw);
+      if (!Number.isInteger(n) || n < 1 || n > 100){
+        pulse(input);
+        return;
+      }
+      window.open(BASE + n, "_blank", "noopener");
+    }
+
+    goBtn.addEventListener("click", goToLevel);
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") goToLevel();
+    });
+
+    // ---- Controls: Hard only toggle ----
+    const toggleHardBtn = document.getElementById("toggleHardBtn");
+    let hardOnly = false;
+
+    toggleHardBtn.addEventListener("click", () => {
+      hardOnly = !hardOnly;
+      toggleHardBtn.textContent = hardOnly ? "Show all" : "Hard only";
+
+      // grid filtering
+      [...grid.children].forEach(el => {
+        const lvl = Number(el.dataset.level);
+        el.classList.toggle("hidden", hardOnly && !hardSet.has(lvl));
+      });
+
+      // hard list always visible (it's already hard-only)
+      hardList.scrollIntoView({behavior:"smooth", block:"start"});
+    });
+
+    // ---- Helpers ----
+    function pulse(el){
+      el.style.transition = "transform .08s ease";
+      el.style.transform = "scale(1.02)";
+      setTimeout(() => el.style.transform = "scale(1)", 90);
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>
