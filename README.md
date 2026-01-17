@@ -2,12 +2,15 @@
 
 You’re stuck. The game is smug. Cool. This repo is a clean index of every level page plus the few “paradigm shift” levels that usually brick people.
 
-
+![game is hard gameplay](https://github.com/gameishard000/Game-is-Hard-Walkthrough/blob/main/game-is-hard.webp?raw=true)
 
 ## How to use this repo
 1. Click your level link in **Level Index (1–100)**.
 2. If the level feels like it has “no buttons,” jump to **Universal Solving Strategies**.
 3. If your level is listed in **Hard Levels (quick walkthroughs)**, do that exact trick first.
+
+## Visit Game is Hard Walkthrough Hub
+Go to [GameIsHard.org](https://gameishard.org)
 
 ---
 
